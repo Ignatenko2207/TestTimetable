@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 public interface LessonDAO extends JpaRepository<Lesson, Integer> {
 
 	List<Lesson> findAllByStartTime(Long startTime, Long endtime);
+	
 	List<Lesson> findAllByStartTime(Long startTime, Long endtime,  Group group);
 	
 }

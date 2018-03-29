@@ -6,6 +6,5 @@ public final class UserRole {
 	STUDENT = "student",
 	TEACHER = "teacher",
 	ADMIN = "admin";
-	
-	
+
 }

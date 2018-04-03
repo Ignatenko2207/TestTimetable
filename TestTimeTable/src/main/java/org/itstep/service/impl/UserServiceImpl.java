@@ -11,27 +11,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class UserServiceImpl implements UserService{
 	@Autowired
 UserDAO userDao;
-	public User save(User user){
-	if(userDao.getOne(user.getLogin()) == null) {
-		return userDao.save(user);
+
+	public User save(User user) {
+		if (userDao.getOne(user.getLogin()) == null) {
+			return userDao.save(user);
+		}
+		return null;
+
 	}
-	return null;
-	
-	}
+
 	public User update(User user) {
-		if(userDao.getOne(user.getLogin()) != null) {
+		if (userDao.getOne(user.getLogin()) != null) {
 			return userDao.save(user);
 		}
 		return null;
 	}
+
 	public User get(String login) {
 		return userDao.getOne(login);
 	}
-	
-	public List<User> findAllByGroup(Group group) {
-			return userDao.findAllByGroup(group);
-	}
 
+	public List<User> findAllByGroup(Group group) {
+		return userDao.findAllByGroup(group);
+	}
 
 	public void delete(String login) {
 		userDao.delete(login);

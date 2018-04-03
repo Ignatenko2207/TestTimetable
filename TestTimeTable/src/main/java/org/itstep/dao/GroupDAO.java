@@ -6,9 +6,9 @@ import org.itstep.model.Group;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
 public interface GroupDAO extends JpaRepository<Group, String> {
-
-	List<Group> findAllByCourse(String course);
+//
+//	List<Group> findAllByCourse(String course);
 
 }

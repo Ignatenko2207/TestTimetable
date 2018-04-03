@@ -12,11 +12,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {ApplicationRunner.class})
+@ContextConfiguration(classes = ApplicationRunner.class)
 public class LessonServiceTest {
 
 	@Autowired
@@ -29,16 +30,15 @@ public class LessonServiceTest {
 	public void testFindAllByStartTimeLongLong() {
 		
 		List<Lesson> lessons = new ArrayList<Lesson>();
-		Mockito.when(lessonDao.findAllByStartTime(Mockito.anyLong(), Mockito.anyLong())).thenReturn(lessons);
+		lessons.add(new Lesson());
+		Long t1 = 12345L;
+		Long t2 = 321654L;
+		Mockito.when(lessonDao.findAllByStartTime(t1, t2)).thenReturn(lessons);
 		
-		List<Lesson> lessonsFromDB = lessonService.findAllByStartTime(123456L, 654321L);
+		List<Lesson> lessonsFromDB = lessonService.findAllByStartTime(t1, t2);
 		
 		assertNotNull(lessonsFromDB);
 	}
 
-	@Test
-	public void testFindAllByStartTimeLongLongGroup() {
-		
-	}
-
+	
 }

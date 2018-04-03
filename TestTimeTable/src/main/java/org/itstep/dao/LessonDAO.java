@@ -8,10 +8,40 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface LessonDAO extends JpaRepository<Lesson, Integer> {
+public class LessonDAO {
 
-	List<Lesson> findAllByStartTime(Long startTime, Long endtime);
-	
-	List<Lesson> findAllByStartTime(Long startTime, Long endtime,  Group group);
-	
+	public Lesson save(Lesson lesson) {
+		return null;
+	}
+
+	public Lesson update(Lesson lesson) {
+		return null;
+	}
+
+	public Lesson getOne(Integer id) {
+		return null;
+	}
+
+	public List<Lesson> findAllByStartTime(Long startPeriod, Long endPeriod) {
+		return null;
+	}
+
+	public void delete(Integer id) {
+		
+	}
+
+	public List<Lesson> findAllByStartTime(Long startPeriod, Long endPeriod, Group group) {
+		return null;
+	}
+
+
 }
+
+// @Repository
+// public interface LessonDAO extends JpaRepository<Lesson, Integer> {
+//
+// List<Lesson> findAllByStartTime(Long startTime, Long endtime);
+//
+// List<Lesson> findAllByStartTime(Long startTime, Long endtime, Group group);
+//
+// }

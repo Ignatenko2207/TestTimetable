@@ -19,26 +19,26 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(classes = {ApplicationRunner.class})
 public class LessonServiceTest {
 
- @Autowired
- LessonService lessonService;
- 
- @Autowired
- LessonDAO lessonDao;
- 
- @Test
- public void testFindAllByStartTimeLongLong() {
-  
-  List<Lesson> lessons = new ArrayList<Lesson>();
-  Mockito.when(lessonDao.findAllByStartTime(Mockito.anyLong(), Mockito.anyLong())).thenReturn(lessons);
-  
-  List<Lesson> lessonsFromDB = lessonService.findAllByStartTime(123456L, 654321L);
-  
-  assertNotNull(lessonsFromDB);
- }
+	@Autowired
+	LessonService lessonService;
+	
+	@Autowired
+	LessonDAO lessonDao;
+	
+	@Test
+	public void testFindAllByStartTimeLongLong() {
+		
+		List<Lesson> lessons = new ArrayList<Lesson>();
+		Mockito.when(lessonDao.findAllByStartTime(Mockito.anyLong(), Mockito.anyLong())).thenReturn(lessons);
+		
+		List<Lesson> lessonsFromDB = lessonService.findAllByStartTime(123456L, 654321L);
+		
+		assertNotNull(lessonsFromDB);
+	}
 
- @Test
- public void testFindAllByStartTimeLongLongGroup() {
-  
- }
+	@Test
+	public void testFindAllByStartTimeLongLongGroup() {
+		
+	}
 
 }

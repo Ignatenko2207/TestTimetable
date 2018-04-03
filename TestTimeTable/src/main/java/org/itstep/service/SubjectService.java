@@ -1,6 +1,8 @@
 package org.itstep.service;
 
 import java.util.List;
+
+import org.itstep.model.Lesson;
 import org.itstep.model.Subject;
 
 public interface SubjectService {
@@ -14,4 +16,6 @@ public interface SubjectService {
 	List<Subject> findAllByGroup(String sbjctName);
 	
 	void delete(String name);
+
+	
 }

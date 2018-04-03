@@ -9,4 +9,8 @@ import org.springframework.stereotype.Repository;
 	@Repository
 	public interface GroupDAO extends JpaRepository<Group, String>{
 		
+		List<Group> findAllByCourse(String course);
+		
+		List<Group> findAllByName(String name, String course);
+		
 }

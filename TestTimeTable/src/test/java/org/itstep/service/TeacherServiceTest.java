@@ -26,20 +26,14 @@ public class TeacherServiceTest {
 	@Autowired
 	TeacherDAO teacherDao;
 	
-	@Autowired
-	Subject subject;
-	
-	@Autowired
-	Teacher teacher;
-
 	@Test
 	public void testFindAllBySubject() {
 		
 		List<Teacher> teachers = new ArrayList<Teacher>();
-		teachers.add(teacher);
-		Mockito.when(teacherDao.findAllBySubject(subject)).thenReturn(teachers);
+		teachers.add(new Teacher());
+		Mockito.when(teacherDao.findAllBySubject(Mockito.any(Subject.class))).thenReturn(teachers);
 		
-		List<Teacher> teachersFromDB = teaherService.findAllBySubject(subject);
+		List<Teacher> teachersFromDB = teaherService.findAllBySubject(new Subject());
 		
 		assertNotNull(teachersFromDB);
 	}

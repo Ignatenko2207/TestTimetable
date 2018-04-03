@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.itstep.ApplicationRunner;
-import org.itstep.dao.LessonDAO;
-import org.itstep.model.Lesson;
+import org.itstep.dao.TeacherDAO;
+import org.itstep.model.Subject;
+import org.itstep.model.Teacher;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -17,28 +18,30 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {ApplicationRunner.class})
-public class LessonServiceTest {
-
-	@Autowired
-	LessonService lessonService;
+public class TeacherServiceTest {
 	
 	@Autowired
-	LessonDAO lessonDao;
+	TeacherService teaherService;
 	
-	@Test
-	public void testFindAllByStartTimeLongLong() {
-		
-		List<Lesson> lessons = new ArrayList<Lesson>();
-		Mockito.when(lessonDao.findAllByStartTime(Mockito.anyLong(), Mockito.anyLong())).thenReturn(lessons);
-		
-		List<Lesson> lessonsFromDB = lessonService.findAllByStartTime(123456L, 654321L);
-		
-		assertNotNull(lessonsFromDB);
-	}
+	@Autowired
+	TeacherDAO teacherDao;
+	
+	@Autowired
+	Subject subject;
+	
+	@Autowired
+	Teacher teacher;
 
 	@Test
-	public void testFindAllByStartTimeLongLongGroup() {
+	public void testFindAllBySubject() {
 		
+		List<Teacher> teachers = new ArrayList<Teacher>();
+		teachers.add(teacher);
+		Mockito.when(teacherDao.findAllBySubject(subject)).thenReturn(teachers);
+		
+		List<Teacher> teachersFromDB = teaherService.findAllBySubject(subject);
+		
+		assertNotNull(teachersFromDB);
 	}
 
 }

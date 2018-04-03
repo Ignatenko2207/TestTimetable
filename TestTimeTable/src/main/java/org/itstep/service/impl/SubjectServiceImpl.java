@@ -35,10 +35,6 @@ public class SubjectServiceImpl implements SubjectService {
 		return subjectDao.getOne(name);
 	}
 
-	public List<Subject> findAllByGroup(String sbjctName) {
-		return subjectDao.findAllByGroup(sbjctName);
-	}
-
 	public void delete(String name) {
 		subjectDao.delete(name);
 	}

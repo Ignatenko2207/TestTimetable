@@ -14,8 +14,6 @@ public interface GroupService {
 	
 	List<Group> findAllByCourse(String course);
 	
-	List<Group> findAllByName(String name, String course);
-	
 	void delete(String name);
 
 }

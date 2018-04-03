@@ -14,33 +14,32 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public class UserController {
 	@Autowired
-UserService userService;
-	@PostMapping( consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE}, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-ResponseEntity<User> save(@RequestParam User user) {
-		if(userService.save(user) != null) {
+	UserService userService;
+
+	@PostMapping(consumes = { MediaType.APPLICATION_JSON_UTF8_VALUE }, produces = {
+			MediaType.APPLICATION_JSON_UTF8_VALUE })
+	ResponseEntity<User> save(@RequestParam User user) {
+		if (userService.save(user) != null) {
 			return new ResponseEntity<User>(user, HttpStatus.OK);
 		}
 		return new ResponseEntity(HttpStatus.METHOD_NOT_ALLOWED);
 	}
-	
-	@PutMapping( consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE} )
+
+	@PutMapping(consumes = { MediaType.APPLICATION_JSON_UTF8_VALUE })
 	ResponseEntity update(@RequestParam User user) {
-		if(userService.update(user) != null) {
+		if (userService.update(user) != null) {
 			return new ResponseEntity(HttpStatus.OK);
 		}
 		return new ResponseEntity(HttpStatus.BAD_REQUEST);
 	}
-	
-	@GetMapping( path = "/get-one", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE} )
+
+	@GetMapping(path = "/get-one", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
 	ResponseEntity<User> getOne(@RequestParam String login) {
 		User user = userService.get(login);
-		if( user != null) {
+		if (user != null) {
 			return new ResponseEntity(user, HttpStatus.OK);
 		}
 		return new ResponseEntity(HttpStatus.BAD_REQUEST);
 	}
-	
-	
-		
-	
+
 }

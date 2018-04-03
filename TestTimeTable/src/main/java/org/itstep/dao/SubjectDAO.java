@@ -9,6 +9,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SubjectDAO extends JpaRepository<Subject, String>{
 	
-	List<Subject> findAllByGroup(String subjectName);
-	
 } 

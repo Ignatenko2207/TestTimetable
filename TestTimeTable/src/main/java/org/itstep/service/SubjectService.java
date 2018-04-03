@@ -13,9 +13,5 @@ public interface SubjectService {
 	
 	Subject get(String name);
 	
-	List<Subject> findAllByGroup(String sbjctName);
-	
 	void delete(String name);
-
-	
 }

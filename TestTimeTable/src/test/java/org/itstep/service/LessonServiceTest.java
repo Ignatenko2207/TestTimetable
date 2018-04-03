@@ -20,7 +20,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class LessonServiceTest {
 
 	@Autowired
-	SubjectService lessonService;
+	LessonService lessonService;
 
 	@Autowired
 	LessonDAO lessonDao;

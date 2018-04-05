@@ -7,10 +7,13 @@ import org.itstep.model.Group;
 import org.itstep.model.User;
 import org.itstep.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class UserServiceImpl implements UserService{
+@Service
+public class UserServiceImpl implements UserService {
+	
 	@Autowired
-UserDAO userDao;
+	UserDAO userDao;
 
 	public User save(User user) {
 		if (userDao.getOne(user.getLogin()) == null) {
@@ -38,7 +41,5 @@ UserDAO userDao;
 	public void delete(String login) {
 		userDao.delete(login);
 	}
-	
-	
-	
+
 }

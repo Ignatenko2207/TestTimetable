@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping(path="/user")
 public class UserController {
+	
 	@Autowired
 	UserService userService;
 

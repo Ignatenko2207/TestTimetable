@@ -11,18 +11,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping(path = "group")
+@RequestMapping(path = "/group")
 public class GroupController {
 	
 	@Autowired
 	GroupService groupService;
 	
 	@PostMapping( consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE}, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-	ResponseEntity<Group> save(@RequestParam Group group) {
+	ResponseEntity<Group> save(@RequestBody Group group) {
 		if(groupService.save(group) != null) {
 			return new ResponseEntity<Group>(group, HttpStatus.OK);
 		}
@@ -31,7 +32,7 @@ public class GroupController {
 	}
 	
 	@PutMapping( consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE} )
-	ResponseEntity update(@RequestParam Group group) {
+	ResponseEntity update(@RequestBody Group group) {
 		if(groupService.update(group) != null) {
 			return new ResponseEntity(HttpStatus.OK);
 		}

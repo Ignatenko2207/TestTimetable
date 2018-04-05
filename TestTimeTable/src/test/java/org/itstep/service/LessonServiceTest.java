@@ -39,6 +39,7 @@ public class LessonServiceTest {
 		List<Lesson> lessonsFromDB = lessonService.findAllByStartTime(t1, t2);
 		
 		assertNotNull(lessonsFromDB);
+		assertEquals(1, lessonsFromDB.size());
 	}
 
 	

@@ -26,7 +26,7 @@ public class LessonServiceTest {
 	
 	@MockBean
 	LessonDAO lessonDao;
-	
+	 
 	@Test
 	public void testFindAllByStartTimeLongLong() {
 		

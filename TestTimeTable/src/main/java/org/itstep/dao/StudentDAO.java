@@ -2,12 +2,14 @@ package org.itstep.dao;
 
 import java.util.List;
 
+
 import org.itstep.model.Group;
+import org.itstep.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface GroupDAO extends JpaRepository<Group, String>{
+public interface StudentDAO extends JpaRepository<Student, String>{
 
-	List<Group> findAllByCourse(String course);
+	List<Student> findAllByGroup(Group group);
 }

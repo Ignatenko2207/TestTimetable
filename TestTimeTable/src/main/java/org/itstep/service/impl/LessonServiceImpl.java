@@ -3,14 +3,13 @@ package org.itstep.service.impl;
 import java.util.List;
 
 import org.itstep.dao.LessonDAO;
-import org.itstep.model.Group;
 import org.itstep.model.Lesson;
 import org.itstep.service.LessonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LessonServiceImpl implements LessonService {
+public class LessonServiceImpl implements LessonService{
 
 	@Autowired
 	LessonDAO lessonDao;
@@ -39,10 +38,6 @@ public class LessonServiceImpl implements LessonService {
 
 	public void delete(Integer id) {
 		lessonDao.delete(id);
-	}
-
-	public List<Lesson> findAllByStartTime(Long startPeriod, Long endPeriod, Group group) {
-		return lessonDao.findAllByStartTime(startPeriod, endPeriod, group);
 	}
 
 }

@@ -10,35 +10,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TeacherServiceImpl implements TeacherService {
+public class TeacherServiceImpl implements TeacherService{
 	
 	@Autowired
-	TeacherDAO teacherDao;
+	TeacherDAO TeacherDao;
 	
-	public Teacher save(Teacher teacher) {
-		if(teacherDao.getOne(teacher.getLogin()) == null) {
-			return teacherDao.save(teacher);
+	public Teacher save(Teacher teacher)
+	{
+		if(TeacherDao.getOne(teacher.getLogin()) == null) {
+			return TeacherDao.save(teacher);
 		}
 		return null;
 	}
 	
-	public Teacher update(Teacher teacher) {
-		if(teacherDao.getOne(teacher.getLogin()) == null) {
-			return teacherDao.save(teacher);
-		}
-		return null;
+	public Teacher get(String login)
+	{
+		return TeacherDao.getOne(login);
 	}
 	
-	public Teacher get(String login) {
-		return teacherDao.getOne(login);
+	public List<Teacher> findAllBySubject(Subject subject){
+		return TeacherDao.findAllBySubject(subject);
 	}
 	
 	public void delete(String login) {
-		teacherDao.delete(login);
-	}
-	
-	public List<Teacher> findAllBySubject(Subject subject) {
-		return teacherDao.findAllBySubject(subject);
+		TeacherDao.delete(login);
 	}
 
+	public Teacher update(Teacher teacher) {
+		if(TeacherDao.getOne(teacher.getLogin()) == null) {
+			return TeacherDao.save(teacher);
+		}
+		return null;
+	}
 }

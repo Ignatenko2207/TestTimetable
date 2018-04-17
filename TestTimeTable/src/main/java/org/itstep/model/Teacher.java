@@ -6,26 +6,30 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
 @Entity
-@Table( name = "teachers")
+@Table( name = "TEACHERS")
 public class Teacher {
 	
 	@Id
-	@Column(name = "login")
+	@Column(name = "LOGIN")
+	@JsonProperty
 	private String login;
 	
-	@Column(name = "password")
+	@Column(name = "PASSWORD")
 	private String password;
 
-	@Column(name = "firstname")
+	@Column(name = "FIRST_NAME")
 	private String firstName;
 	
-	@Column(name = "secondname")
+	@Column(name = "SECONDNAME")
+	@JsonProperty
 	private String secondName;
 	
 	@ManyToOne(targetEntity = Subject.class)

@@ -8,20 +8,23 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
 @Entity
-@Table( name = "lessons" )
+@Table( name = "LESSONS" )
 public class Lesson {
 
 	private static final Long DURATION = 1000 * 60 * 90L;
 	
 	@Id
 	@GeneratedValue( strategy = GenerationType.AUTO)
-	@Column( name = "lesson_id")
+	@Column( name = "LESSON_ID")
+	@JsonProperty
 	private Integer id;
 	
 	@ManyToOne( targetEntity = Subject.class )
@@ -33,10 +36,12 @@ public class Lesson {
 	@ManyToOne( targetEntity = Group.class )
 	private Group group;
 	
-	@Column( name = "cabinet")
+	@Column( name = "CABINET")
+	@JsonProperty
 	private String cabinet;
 	
-	@Column( name = "start_time")
+	@Column( name = "START_TIME")
+	@JsonProperty
 	private Long startTime;
 	
 }
